@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vue</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+
+</head>
+<body>
+    <div id="app">
+       <h2>Counter = {{ counter }}</h2>
+       <button v-on:click="riseCounter">Увеличить</button>
+       <button v-on:click="degriseCounter">Уменьшить</button>
+       <hr>
+       <h2 v-on:mouseover="onHover">Counter2 = {{ counter2 }}</h2> -->
+       <button v-on:click="counter2++">Увеличить</button>
+    </div>
+
+
+
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                counter: 0,
+                counter2: 0
+            },
+            methods: {
+                riseCounter: function(){
+                    this.counter++;
+                },
+                degriseCounter: function(){
+                    this.counter--;
+                },
+                onHover: function(event){
+                    event.target.style.color = 'red';
+                }
+            }
+        })
+    
+    
+    </script>
+</body>
+</html>
