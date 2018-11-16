@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vue. Модификатор событий.</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+
+</head>
+<body>
+    <div id="app">
+        <p>модификатор <span>.prevent</span> говорит директиве <span>v-on</span> вызвать <span>event.preventDefault()</span> при обработке произошедшего события </p>
+       <h2>            
+           <a href="https:/google.com" target="_blanck">GOOGLE</a>
+       </h2>
+       <h2 v-on:mousemove="handleMouse">
+           X: {{ x }} \ Y: {{ y }} <br>
+           <p v-on:mousemove.stop>Здесь не работает событие mousemove</p>
+           <p>Здесь опять работает</p>
+       </h2>
+       
+    </div>
+
+
+
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                x: 0,
+                y: 0
+            },
+            methods: {
+                handleMouse: function(e){
+                    this.x = e.clientX;
+                    this.y = e.clientY;
+                }
+            }
+        })
+    
+    
+    </script>
+</body>
+</html>
