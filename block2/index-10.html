@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vue. Работа с CSS классами.</title>
+    <style>
+        .circle {
+            border-radius: 50%;
+            width: 100px;
+            height: 100px;
+            border: 1px solid black;
+            display: inline-block;
+            margin: 40px;
+        }
+
+       .red {background-color: rgb(145, 7, 7);} 
+       .blue {background-color: rgb(83, 43, 226)} 
+       .green {background-color: greenyellow;} 
+
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+
+</head>
+<body>    
+    <div id="app">
+        <div 
+            class="circle"
+            @click="isActive = !isActive"
+            :class="getCssClasses"
+        ></div>
+
+        <div class="circle" :class="[ color,  getCssClasses]"></div>
+        <input type="text" v-model="color">
+    </div>
+
+    
+
+
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                isActive: false,
+                color: 'blue'
+            },
+            computed: {
+                getCssClasses: function(){
+                    return {
+                        'red': this.isActive,
+                        'green': !this.isActive
+                    }
+                }
+            },
+            
+        })
+    
+    
+    </script>
+</body>
+</html>
