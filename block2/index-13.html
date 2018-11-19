@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vue. Директива v-show vs v-if</title>    
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+
+</head>
+<body> 
+    <h2>В зависимости от литеры показываем заголовок</h2>   
+    <div id="app">
+            <h2 v-if="isVisible">I'm visible top!</h2>  
+            <h2 v-else>I'm visible down!</h2>  
+            <button @click="isVisible = !isVisible">Push me</button>
+            <hr>
+            <h2 v-show="isVisible">I'm visible top!</h2>  
+            <h2 v-show="!isVisible">I'm visible down!</h2>  
+            <p>Директива v-show ( инлайном прописывает display: none\block ) не удаляет элемент из DOM в отличии от v-if</p>
+    </div>
+    
+
+
+    <script>
+        new Vue({
+            el: '#app',
+            data: {                
+                isVisible: true
+            }          
+            
+        })
+    
+    
+    </script>
+</body>
+</html>
