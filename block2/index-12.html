@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Vue. Динамические инлайн стили.</title>
+    <title>Vue. Управление отображением элементов.</title>
     <style>
         .circle {
             border-radius: 50%;
@@ -26,10 +26,10 @@
 <body>    
     <div id="app">
             <div id="app">
-                <div class="circle" :style = "circleClass"></div>            
-                <div class="circle" :style = "[circleClass, { width: height + 'px' }]"></div>
-                <input type="text" v-model="color">
-                <input type="text" v-model="height">
+                <div class="circle" :style = "{ 'background-color': color, 'height': height + 'px' }"></div>            
+                <div class="circle" ></div>
+                <input type="text" v-model="color">                
+                <input type="text" v-model="height">                
             </div>
     </div>
     
@@ -45,8 +45,7 @@
             computed: {
                 circleClass: function(){
                     return {
-                        backgroundColor: this.color,
-                        height: this.height + 'px'
+                        
                     }
                 }
             }               
