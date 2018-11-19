@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vue. Работа со списками.</title>    
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+
+</head>
+<body> 
+    <h2>Вывод элементов списка</h2>   
+    <div id="app">
+        <ul>
+            <li v-for="(person, index) in people">{{ index + 1 }} {{ person }}</li>
+        </ul>
+        <p>index - необязательный параметр</p>
+
+        <hr>
+
+        <ul>
+            <li v-for="(person, index) in objectPeaple">{{ index + 1 }} Имя: {{ person.name }}. Возраст: {{ person.age }}. </li>
+        </ul>
+        <p>Другой вариант</p>
+        <ul>
+            <li v-for="(person, index) in objectPeaple">{{ index + 1 }} Имя: {{ person.name }}. Возраст: {{ person.age }}. </li>
+        </ul>
+
+        <hr>
+        <p>Вывод чисел от 1 до 10</p>
+        <ol>
+            <li v-for="num of 5">{{ num }}</li>
+        </ol>
+        <hr>
+
+        <p>Работа с объектом.key, index - необ. параметр</p>
+        <ul>
+            <li v-for="(value, key, index) in infoPeople">{{ index + 1 }}. {{ key }}: {{ value }}</li>
+        </ul>
+        
+    </div>
+    
+
+
+    <script>
+        new Vue({
+            el: '#app',
+            data: {                
+                people: [
+                    'Sasha',
+                    'Max',
+                    'Yura'
+                ],
+                objectPeaple: [
+                    {name: 'Vlad', age: 33},                    
+                    {name: 'Yulia', age: 32},                    
+                    {name: 'FoxyMoxy', age: 23}                    
+                ],
+                infoPeople: {
+                    name: 'Yura',
+                    age: 45,
+                    job: 'bomj'
+                }
+            }          
+            
+        })
+    
+    
+    </script>
+</body>
+</html>
