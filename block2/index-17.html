@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Связывание разных приложений. Инстанс vue</title>    
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+
+</head>
+<body> 
+    <h2>Связывание разных приложений.</h2>   
+    <div id="app">
+         <h2>{{ title1 }}</h2>
+         <p>{{ newField }}</p>
+         <button @click="title1 = 'Update title 1'">Push me</button>
+    </div>
+    <hr>
+    <div id="app2">
+         <h2>{{ title2 }}</h2>
+         <button @click="upTitle_1">Push me for change title1</button>
+    </div>
+    
+
+
+    <script>
+        let vue_1 = new Vue({
+            el: '#app',
+            data: {                
+                title1: 'My title 1'
+            },
+            methods: {
+                alertVue(){
+                    alert('Кнопкой "Push me for change title1" вызвали метод из vue_1!')
+                }
+            }
+                    
+            
+        })
+        
+        vue_1.newField = '';
+
+        new Vue ({
+            el: '#app2',
+            data: {
+                title2: 'My title 2'
+            },
+            methods: {
+                upTitle_1(){
+                    vue_1.title1 = 'Поменяли title1 второй кнопкой!)';
+                    vue_1.newField  = 'Это поле было сгенерировано во втором объекте Vue';
+                    setTimeout(function(){
+                        vue_1.alertVue();
+                    }, 1000)
+                }
+            }
+        })
+    
+    
+    </script>
+</body>
+</html>
