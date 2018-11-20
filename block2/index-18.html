@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Доступ к DOM элементам</title>    
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+
+</head>
+<body> 
+    <h2>Доступ к DOM элементам через ref.</h2>   
+    <div id="app">
+        <h2 ref = 'heading'>{{ title }}</h2> 
+        <button @click="getInsideTeg">Жми!</button>
+        <hr ref = 'hrRef'>
+    </div>
+    
+
+
+    <script>
+        new Vue({
+            el: '#app',
+            data: {                
+                title: 'Тест до события'
+            },
+            methods: {
+                getInsideTeg(){
+                    this.title = this.$refs;
+                    this.$refs.heading.style.color = 'red';
+                }
+            }         
+            
+        })
+    
+    
+    </script>
+</body>
+</html>
