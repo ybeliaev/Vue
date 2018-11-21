@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Свойство template</title>    
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+
+</head>
+<body> 
+    <h2>vm.$mount('#app') примонтирует экземпляр.</h2>   
+    <div id="app">
+        
+    </div>
+    
+
+
+    <script>
+        let vue = new Vue({
+            el: '#app',
+            data: {                
+                title: 'template заменяет элемент в точке монтирования.'
+            },
+            template: '<h1>{{ title }}</h1> '        
+            
+        })
+        vue.$mount('#app');
+    
+    </script>
+</body>
+</html>
